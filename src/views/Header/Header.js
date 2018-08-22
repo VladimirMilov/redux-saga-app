@@ -1,16 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../../utils/constants';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Home = () => {
-    return (
-        <div>
-            <Link to={ROUTES.INITIAL}>Home</Link>
-            <Link to={ROUTES.REQUESTS}>Async requests</Link>
-            <Link to={ROUTES.ANIMATIONS}>Animations</Link>
-            <Link to={ROUTES.CONTACTS}>Contacts</Link>
-        </div>
-    )
-}
+import { Layout, Menu } from "antd";
 
-export default Home;
+import { ROUTES } from "../../utils/constants";
+
+const Header = () => {
+  return (
+    <Layout.Header>
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={["1"]}
+        style={{ lineHeight: "64px" }}
+      >
+        <Menu.Item key="1">
+          <Link to={ROUTES.INITIAL}>Home</Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Link to={ROUTES.REQUESTS}>Async requests</Link>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Link to={ROUTES.ANIMATIONS}>Animations</Link>
+        </Menu.Item>
+        <Menu.Item key="4">
+          <Link to={ROUTES.CONTACTS}>Contacts</Link>
+        </Menu.Item>
+      </Menu>
+    </Layout.Header>
+  );
+};
+
+export default Header;

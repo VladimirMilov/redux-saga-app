@@ -8,9 +8,15 @@ import Header from './views/Header/Header';
 import Requests from './views/Requests/Requests';
 import Animations from './views/Animations/Animations';
 import NotFound from './views/NotFound/NotFound';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ROUTES } from './utils/constants';
 import { Button } from 'antd';
+import createHistory from "history/createBrowserHistory";
+import {
+  ConnectedRouter,
+} from "react-router-redux";
+
+const history = createHistory();
 
 const routes = [
   {
@@ -33,7 +39,7 @@ const App = ({ firstReducer, simpleAction }) => {
     simpleAction();
    }
   return (
-    <Router>
+    <ConnectedRouter history={history}>
       <div className="App">
         <Header />
         <pre>
@@ -48,7 +54,7 @@ const App = ({ firstReducer, simpleAction }) => {
           <Route component={NotFound} />
         </Switch>
       </div>
-    </Router>
+    </ConnectedRouter>
   );
 }
 
