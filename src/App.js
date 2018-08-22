@@ -10,6 +10,7 @@ import Animations from './views/Animations/Animations';
 import NotFound from './views/NotFound/NotFound';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ROUTES } from './utils/constants';
+import { Button } from 'antd';
 
 const routes = [
   {
@@ -40,7 +41,7 @@ const App = ({ firstReducer, simpleAction }) => {
             JSON.stringify(firstReducer)
           }
         </pre>
-        <button onClick={onSimpleAction}>Special button</button>
+        <Button type="primary" onClick={onSimpleAction}>Special button</Button>
         <Switch>
           <Route exact path={ROUTES.INITIAL} component={Home} />
           {routes.map(route => <Route path={route.path} component={route.component} key={route.path} /> )}
